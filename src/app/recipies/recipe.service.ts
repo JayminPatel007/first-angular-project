@@ -1,7 +1,9 @@
 import {Recipe} from './recipe.model';
-import {EventEmitter} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
+import {ShoppingListService} from '../shoping-list/shopping-list.service';
 
+@Injectable()
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
   // tslint:disable-next-line:max-line-length
@@ -19,8 +21,15 @@ export class RecipeService {
         new Ingredient('Base', 1),
         new Ingredient('Mozrela Cheese', 1)
       ])];
+  constructor(private shoppingListService: ShoppingListService) {
+  }
   getRecipes() {
     return this.recipes.slice();
+  }
+  addIngredientListToShopingList(ingredients: Ingredient[]) {
+    for (const ingredient of ingredients) {
+      this.shoppingListService.addIngrediantToShopingList(ingredient);
+    }
   }
 
 }
