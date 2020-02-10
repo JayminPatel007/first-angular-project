@@ -1,6 +1,8 @@
 import {Recipe} from './recipe.model';
+import {EventEmitter} from '@angular/core';
 
 export class RecipeService {
+  recipeSelected = new EventEmitter<Recipe>();
   // tslint:disable-next-line:max-line-length
   private recipes: Recipe[] = [new Recipe('Test Recipe', 'This is simply a test recipe',
     // tslint:disable-next-line:max-line-length
