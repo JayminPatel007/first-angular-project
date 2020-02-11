@@ -8,7 +8,7 @@ import {RecipeService} from './recipe.service';
   styleUrls: ['./recipies.component.css'],
   providers: [RecipeService]
 })
-export class RecipiesComponent implements OnInit {
+export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
   constructor(private recipeService: RecipeService) { }
   ngOnInit() {

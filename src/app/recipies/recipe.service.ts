@@ -31,5 +31,13 @@ export class RecipeService {
       this.shoppingListService.addIngrediantToShopingList(ingredient);
     }
   }
+  getRecipeById(id: number) {
+     const result = this.recipes.filter(recipe => recipe.id === id);
+     if (result.length === 1) {
+       return result[0];
+     } else {
+       return null;
+     }
+  }
 
 }

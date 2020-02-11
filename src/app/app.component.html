@@ -1,9 +1,8 @@
-<app-header (featureSelectionEvent)="featureEventHandler($event)"></app-header>
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipies *ngIf="selectedFeature === 'recipe'"></app-recipies>
-      <app-shoping-list *ngIf="selectedFeature !== 'recipe'"></app-shoping-list>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
