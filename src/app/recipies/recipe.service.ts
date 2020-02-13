@@ -1,11 +1,10 @@
 import {Recipe} from './recipe.model';
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {ShoppingListService} from '../shoping-list/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
   // tslint:disable-next-line:max-line-length
   private recipes: Recipe[] = [new Recipe('Test Recipe', 'This is simply a test recipe',
     // tslint:disable-next-line:max-line-length
@@ -27,9 +26,7 @@ export class RecipeService {
     return this.recipes.slice();
   }
   addIngredientListToShopingList(ingredients: Ingredient[]) {
-    for (const ingredient of ingredients) {
-      this.shoppingListService.addIngrediantToShopingList(ingredient);
-    }
+      this.shoppingListService.addIngredientsToShoppingList(ingredients);
   }
   getRecipeById(id: number) {
      const result = this.recipes.filter(recipe => recipe.id === id);
