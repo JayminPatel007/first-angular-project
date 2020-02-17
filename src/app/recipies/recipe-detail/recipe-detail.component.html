@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <div class="btn-group" appDropdown>
+    <div class="btn-group" appDropdown *ngIf="authService.isAuthenticated()">
       <button class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
       <ul class="dropdown-menu">
         <li><a (click)="addIngredientToToShoppingList()" style="cursor: pointer">Add Ingredients to shopping list</a></li>

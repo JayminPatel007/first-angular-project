@@ -1,6 +1,9 @@
 <div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-success" routerLink="/recipes/add">Add Recipe</button>
+  <div class="col-xs-12" *ngIf="!authService.isAuthenticated()">
+    <h4>Please SingIn to add and manage Recipes</h4>
+  </div>
+  <div class="col-xs-12" *ngIf="authService.isAuthenticated()">
+    <button class="btn btn-success" routerLink="/recipes/add" >Add Recipe</button>
   </div>
 </div>
 <hr>
